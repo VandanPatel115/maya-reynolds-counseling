@@ -25,10 +25,8 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
-      <body className={`${fraunces.variable} ${inter.variable}`}>
-        {children}
-      </body>
+    <html lang="en" className={`${fraunces.variable} ${inter.variable}`}>
+      <body>{children}</body>
     </html>
   );
 }
