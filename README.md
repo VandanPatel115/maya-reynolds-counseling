@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Dr. Maya Reynolds, PsyD — Santa Monica Therapy Practice
 
-## Getting Started
+Clone and creative redesign of [conejovalleycounseling.com](https://www.conejovalleycounseling.com/home), rebuilt for a fictional therapist profile.
 
-First, run the development server:
+**Live:** https://maya-reynolds-counseling.vercel.app
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Stack
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Next.js 15 (App Router) · TypeScript · Tailwind CSS v4
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Theme system
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+All colours and typography are defined as design tokens in a single `@theme` block in `src/app/globals.css`. No component hardcodes a hex value, so the entire site can be re-themed by editing nine lines.
 
-## Learn More
+- **Primary — Sage `#7C8B7A`** — buttons, eyebrows, section anchors
+- **Secondary — Warm Sand `#E6DDD0`** — alternating section backgrounds
+- **Accent — Clay `#C67B5C`** — links, hover states, focal points
 
-To learn more about Next.js, take a look at the following resources:
+The palette is derived from the therapist's actual office: sage for the calm she describes in her profile, clay from the exposed brick in her photographs.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Content architecture
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+All copy lives in `src/lib/content.ts`, separated from layout. Every line traces back to the provided profile — specialties, modalities, client populations, location, and session formats.
 
-## Deploy on Vercel
+## Structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+src/
+├─ app/ layout, page, global theme
+├─ components/
+│ ├─ sections/ one file per homepage section
+│ └─ ui/ Container, Section, Button, Eyebrow, Em, Navbar
+└─ lib/ content.ts, utils.ts
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Notes on the redesign
+
+- The source template's "Who we help" section targets adults, couples, and children. Dr. Reynolds works exclusively with adults, so the layout was preserved and the content rewritten to her three client populations.
+- "Our Office" is the required new section, built from her office photography and her own description of the space.
+- An FAQ section was added to satisfy the submission form's content requirements.
+
+## Image credits
+
+Office photography and headshot from the provided profile.
+Supporting photography from Unsplash.
